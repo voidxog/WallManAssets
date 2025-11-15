@@ -1,4 +1,5 @@
 #!/bin/bash
-for f in *.jpeg; do
-    magick "$f" "${f%.jpeg}.png" && rm "$f"
+for f in *.jpg *.jpeg; do
+    [ -e "$f" ] || continue
+    magick "$f" "${f%.*}.png" && rm "$f"
 done
